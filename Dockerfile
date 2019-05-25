@@ -45,5 +45,3 @@ RUN set -ex \
 
 RUN docker-php-ext-install exif \
     && docker-php-ext-enable exif
-    
-RUN apk add --update nodejs nodejs-npm

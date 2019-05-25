@@ -1,10 +1,4 @@
-
-FROM node:lts-alpine as builder
-RUN yarn && yarn build
-
 FROM php:7.1-alpine
-
-COPY --from=builder /public /var/www/html/public
 
 MAINTAINER Dmitry Boyko <dmitry@thebodva.com>
 

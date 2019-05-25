@@ -1,4 +1,10 @@
+
+FROM node:lts-alpine as builder
+RUN yarn && yarn build
+
 FROM php:7.1-alpine
+
+COPY --from=builder /public /var/www/html/public
 
 MAINTAINER Dmitry Boyko <dmitry@thebodva.com>
 
@@ -45,3 +51,4 @@ RUN set -ex \
 
 RUN docker-php-ext-install exif \
     && docker-php-ext-enable exif
+    
